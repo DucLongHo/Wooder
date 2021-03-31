@@ -1,0 +1,60 @@
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.padding-section {
+    padding: 9rem 0;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 4s;
+}
+
+@media (max-width: $sm-max) {
+    .padding-section {
+        padding: 6rem 0;
+    }
+}
+
+@media (max-width: $xs-max) {
+    .padding-section {
+        padding: 5.5rem 0;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Animation                                 */
+/* -------------------------------------------------------------------------- */
+@keyframes mouseFadeIn {
+    to {
+        opacity: 0;
+    }
+    from {
+        opacity: 1;
+    }
+}
+@keyframes arrowFadeDown {
+    to {
+        opacity: 1;
+        top: 0;
+    }
+    from {
+        opacity: 0;
+        top: 2rem;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,37 @@
+.navbar-mobile {
+    display: none;
+}
+
+@media (max-width: $sm-max) {
+    .header {
+        .navbar-mobile {
+            display: block;
+            position: fixed;
+            width: 22rem;
+            height: 100%;
+            left: -100%;
+            top: 6.8rem;
+            background-color: #000;
+            @include transition($time all $timing-ease);
+            &.active {
+                left: 0;
+                @include transition($time all $timing-ease);
+            }
+            &__item {
+                padding: 1rem 1.5rem;
+                &-link {
+                    @include text($font-bold, $fs-navbar, 0.025rem, $lh-normal, $tcl-light, uppercase);
+                    opacity: 0.5;
+                    position: relative;
+                    padding-bottom: 0.5rem;
+                    @include transition($time all $timing-ease);
+                    &.active {
+                        @include transition($time all $timing-ease);
+                        color: $tcl-light;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

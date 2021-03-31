@@ -1,0 +1,136 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Button                                   */
+/* -------------------------------------------------------------------------- */
+.btn-outline {
+    @include flexFull(false, center, center);
+    position: relative;
+    padding: 16px 50px;
+    width: max-content;
+    margin: auto;
+    border: 1px solid $cl-light;
+    @include text($font-bold, $fs-button, 2px, $lh-normal, $tcl-light, uppercase);
+    @include transition($time all $timing-ease);
+    z-index: 1;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        top: 0;
+        bottom: 0;
+        background-color: $cl-primary;
+        @include transition($time all $timing-ease);
+        z-index: -1;
+    }
+    &:hover {
+        &::before {
+            left: 0;
+            right: 0;
+            @include transition($time all $timing-ease);
+        }
+    }
+}
+
+.btn-without-border {
+    position: relative;
+    @include text($font-bold, $fs-button, 2px, $lh-normal, $cl-dark, uppercase);
+    @include alignCenterFlex();
+    margin-bottom: 5px;
+    width: max-content;
+    @include transition($time all $timing-ease);
+    i {
+        padding-left: 12px;
+    }
+
+    &:hover {
+        color: $cl-primary;
+        @include transition($time all $timing-ease);
+    }
+}
+/* -------------------------------------------------------------------------- */
+/*                                   Textbox                                  */
+/* -------------------------------------------------------------------------- */
+.textbox {
+    &__title {
+        @include text($font-bold, $fs-heading, 0.7px, $lh-normal, $tcl-heading, uppercase);
+    }
+    &__desc {
+        letter-spacing: 0.25px;
+        @include overtext(3);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Line Header                                */
+/* -------------------------------------------------------------------------- */
+.line {
+    position: relative;
+    &::before {
+        content: '';
+        @include alignElement('top');
+        width: 100%;
+        height: 3px;
+        background-color: $cl-dark;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Back top top                                */
+/* -------------------------------------------------------------------------- */
+.btn-to-top {
+    position: fixed;
+    background-color: $cl-primary;
+    right: 2rem;
+    bottom: 4rem;
+    width: 5rem;
+    height: 6rem;
+    padding: 1.2rem;
+    cursor: pointer;
+    @include alignCenterFlex();
+    @include borderRadius(0.5rem);
+    @include visible(false);
+    @include transition($time all $timing-ease);
+    &.active {
+        bottom: 6rem;
+        @include visible(true);
+        @include transition($time all $timing-ease);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Popup video                                */
+/* -------------------------------------------------------------------------- */
+.popup-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 300;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    // display: flex;
+    justify-content:center;
+    align-items: center;
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 600px;
+        max-height: 330px;
+    }
+    &__btn-close {
+        position: absolute;
+        top: -10%;
+        right: -5%;
+        @include borderRadius(50%);
+        background: $cl-light;
+        color: $cl-dark;
+        width: 4rem;
+        height: 4rem;
+        text-align: center;
+        line-height: 4rem;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
